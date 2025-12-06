@@ -6,7 +6,7 @@ NEG   - returns -arg1
 MULTL - lower byte of arg1 * arg2
 MULTH - higher byte of arg1 * arg2
 ROTR  - rotate bits right
-RAND  - return a random value
+RAND  - return a pseudo-random value
 XOR   - arg1 XOR arg2 (bitwise)
 OR    - arg1 OR arg2 (bitwise)
 AND   - arg1 AND arg2 (bitwise)
@@ -14,10 +14,12 @@ CMP   - 1 if arg1 > arg2 and 0 otherwise
 INPT  - returns input bits, each bit corresponds to a key: wasdqe12
 SHFTR - arg1 >> 1
 SHFTL - arg1 << 1
-JZ    - jump to arg1 if arg2 == 0
+JZ    - jump to arg1 if arg2 == 0                     (absolute jump)
+JZA   - jump to (current line + arg1) if arg2 == 0    (relative jump)
 HALT  - stops the program
 DRAW  - update the screen
 CLEAR - clear the screen
+
 
 Input:
 #/nothing - immediate
@@ -25,11 +27,13 @@ A - register A
 B - register B
 $ - RAM
 
+
 Output:
 A - register A
 B - register B
 $ - RAM
 % - screen (with constant address)
+
 
 Write syntax:
 Use '->' for the writes, like this:
@@ -39,12 +43,14 @@ MOV 1 -> A ; writes 1 to reg A
 To output data to screen with dynamic address use:
 MOV [input] <- [output]
 this writes [output] at address [input], for example:
-MOV A <- B ; writes B at address A
+MOV A <- B ; writes B to screen at address A
 Only MOV works with non-constant outputs
 
+
 Screen:
-Only supports 2 channels, starting configuration: Red = upper nibble, Green = lower nibble
+Only supports 2 color channels, starting configuration is: Red = upper nibble, Green = lower nibble
 You can configure it yourself in DLS for different channels
+
 
 Ram limitation:
 You can only access 1 RAM address at a time, so reading from 2 different addresses isn't allowed and neither is reading and writing to different addresses, example:
@@ -56,3 +62,16 @@ ADD $0, $1 -> A ; not allowed
 
 but accessing 2 registers is fine:
 ADD A, B -> A   ; allowed
+
+
+Labels:
+Define labels as '.[label name]', you can use them for jumps:
+JZ .test ; jumps to label .test
+
+Defines:
+Use '#define [variable] [value]' to define constants
+This will replace all instances of [variable] with [value] in inputs, like this:
+#define var 10  ; defines var as 10
+ADD A, var -> B ; writes A+10 to B
+
+MOV A -> var    ; not allowed, var is immediate
