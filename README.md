@@ -6,4 +6,5 @@ Paste the folder called `MUCH_BETTER_CPU` into `%appdata%\..\LocalLow\SebastianL
 
 ## How to use the assembler
 Download the assembler from [here](https://github.com/Sava-thecoolone/BETTER-CPU/releases/tag/Latest) and drag the file you want to compile on top of it. Alternatively, you can run `main.exe` with the file as an argument in a cmd window for debug info
+
 **The assembler automatically updates the project**, just exit out of it and then open it again to updates it
