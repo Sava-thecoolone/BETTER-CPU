@@ -1,0 +1,105 @@
+MOV 0 -> A
+CLEAR
+
+#define TAIL_POS 0
+#define CUR_POS 1
+#define CUR_DIR 2
+#define APPLE_POS 3
+
+#define UP 16
+#define DOWN -16
+#define RIGHT 1
+#define LEFT -1
+
+#define SNAKE_COL 0b00000111 ; dark green
+#define HEAD_COL 0b00001111  ; green
+#define APPLE_COL 0b11110000 ; red
+
+MOV 134 -> $TAIL_POS
+MOV 136 -> $CUR_POS
+MOV 1 -> $CUR_DIR
+MOV 134 <- SNAKE_COL
+MOV 135 <- SNAKE_COL
+
+.gen_apple
+RAND -> B   ; select a random location
+MOV B -> B  ; does nothing, just to set arg1 to B
+MOV !0 -> A ; get pixel at B
+JZA 2, A    ; if nothing there - continue, otherwise restart
+JZ .gen_apple
+MOV B -> $APPLE_POS
+MOV $APPLE_POS <- APPLE_COL ; put an apple there
+DRAW
+
+.loop
+; update prev head
+MOV $CUR_DIR -> A
+AND A, 0b10000000 -> $255 ; d0000000 (is backwards)
+SHFTR $255 -> $255        ; 0d000000
+SHFTR $255 -> $255        ; 00d00000
+JZA 2, $255
+NEG A -> A
+AND A, 0b00010000 -> A    ; 000d0000 (is vertical)
+OR A, $255 -> A           ; 00dd0000 (combine)
+OR A, SNAKE_COL -> A      ; 00dd1111 (pack with color)
+MOV $CUR_POS <- A         ; write
+
+; add new head
+MOV $CUR_DIR -> A         ; can't read from 2 addresses at once
+ADD A, $CUR_POS -> $CUR_POS
+MOV $CUR_POS -> $CUR_POS  ; does nothing, just to set arg1 to $CUR_POS
+MOV !0 -> A               ; read pixel at $CUR_POS
+AND A, 0b00001111 -> A    ; strip away the direction pixels
+XOR A, SNAKE_COL -> A     ; equal 0 only if pixel at $CUR_POS = SNAKE_COL
+JZ .end, A                ; if collided with self, stop
+MOV $CUR_POS <- HEAD_COL
+
+MOV $APPLE_POS -> A       ; can't read from 2 addresses at once
+XOR $CUR_POS, A -> A      ; equal 0 only if $CUR_POS = $APPLE_POS, means we ate an apple
+JZ .gen_apple, A          ; skip everything if ate apple
+
+
+; update tail
+MOV $TAIL_POS -> A   ; save it to erase it later
+MOV A -> $255
+MOV !0 -> B          ; get pixel at $TAIL_POS
+MOV $255 <- 0        ; erase it
+MOV 1 -> $255        ; starting value (horizontal + forward, aka. RIGHT)
+
+; B = 00dd1111
+AND B, 0b00010000 -> A ; d1*16 (mult doesn't matter)
+AND B, 0b00100000 -> B ; d2*32 (mult doesn't matter)
+JZA 2, A 
+MOV UP -> $255   ; make it vertical
+JZA 2, B
+NEG $255 -> $255 ; make it backwards
+MOV $255 -> A ; can't read from 2 addresses at once
+ADD $TAIL_POS, A -> $TAIL_POS
+
+; read input
+INPT -> B        ; wasdqe12
+AND B, 1 -> $255 ; w
+JZA 2, $255
+MOV UP -> $CUR_DIR
+
+SHFTR B -> B     ; asdqe12-
+AND B, 1 -> $255 ; a
+JZA 2, $255
+MOV LEFT -> $CUR_DIR
+
+SHFTR B -> B     ; sdqe12--
+AND B, 1 -> $255 ; s
+JZA 2, $255
+MOV DOWN -> $CUR_DIR
+
+SHFTR B -> B     ; dqe12---
+AND B, 1 -> $255 ; d
+JZA 2, $255
+MOV RIGHT -> $CUR_DIR
+
+MOV $APPLE_POS <- APPLE_COL
+DRAW
+JZ .loop
+
+.end
+HALT
