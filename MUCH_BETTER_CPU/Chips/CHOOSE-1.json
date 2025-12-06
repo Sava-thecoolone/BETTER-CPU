@@ -1,0 +1,119 @@
+{
+  "DLSVersion": "2.1.6",
+  "Name": "CHOOSE-1",
+  "NameLocation": 0,
+  "ChipType": 0,
+  "ShouldBeCached": false,
+  "Size": {
+    "x": 1.325,
+    "y": 0.5
+  },
+  "Colour": {
+    "r": 0.977343559,
+    "g": 0.147141531,
+    "b": 0.990744531,
+    "a": 1
+  },
+  "InputPins":[
+    {
+      "Name":"IN",
+      "ID":916016566,
+      "Position":{
+        "x":46.875,
+        "y":-9.8125
+      },
+      "BitCount":"1",
+      "Colour":0,
+      "ValueDisplayMode":0,
+      "face":1,
+      "LocalOffset":0.0
+    }
+  ],
+  "OutputPins":[
+    {
+      "Name":"OUT",
+      "ID":845262965,
+      "Position":{
+        "x":50.25,
+        "y":-9.5
+      },
+      "BitCount":"1",
+      "Colour":0,
+      "ValueDisplayMode":0,
+      "face":1,
+      "LocalOffset":0.0
+    },
+    {
+      "Name":"OUT",
+      "ID":1548343432,
+      "Position":{
+        "x":50.25,
+        "y":-10.0
+      },
+      "BitCount":"1",
+      "Colour":0,
+      "ValueDisplayMode":0,
+      "face":1,
+      "LocalOffset":0.0
+    }
+  ],
+  "SubChips":[
+    {
+      "Name":"NOT",
+      "ID":468709858,
+      "Label":"",
+      "Position":{
+        "x":48.9225,
+        "y":-10.0
+      },
+      "OutputPinColourInfo":[{"PinColour":0,"PinID":349375348}],
+      "InternalData":null
+    }
+  ],
+  "Wires":[
+    {
+      "SourcePinAddress":{
+        "PinID":0,
+        "PinOwnerID":916016566
+      },
+      "TargetPinAddress":{
+        "PinID":435973799,
+        "PinOwnerID":468709858
+      },
+      "ConnectionType":0,
+      "ConnectedWireIndex":-1,
+      "ConnectedWireSegmentIndex":-1,
+      "Points":[{"x":0.0,"y":0.0},{"x":0.0,"y":0.0}]
+    },
+    {
+      "SourcePinAddress":{
+        "PinID":0,
+        "PinOwnerID":916016566
+      },
+      "TargetPinAddress":{
+        "PinID":0,
+        "PinOwnerID":845262965
+      },
+      "ConnectionType":0,
+      "ConnectedWireIndex":-1,
+      "ConnectedWireSegmentIndex":-1,
+      "Points":[{"x":0.0,"y":0.0},{"x":0.0,"y":0.0}]
+    },
+    {
+      "SourcePinAddress":{
+        "PinID":349375348,
+        "PinOwnerID":468709858
+      },
+      "TargetPinAddress":{
+        "PinID":0,
+        "PinOwnerID":1548343432
+      },
+      "ConnectionType":0,
+      "ConnectedWireIndex":-1,
+      "ConnectedWireSegmentIndex":-1,
+      "Points":[{"x":0.0,"y":0.0},{"x":0.0,"y":0.0}]
+    }
+  ],
+  "Displays": null,
+  "HasCustomLayout": false
+}

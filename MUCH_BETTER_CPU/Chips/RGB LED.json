@@ -1,0 +1,84 @@
+{
+  "DLSVersion": "2.1.6",
+  "Name": "RGB LED",
+  "NameLocation": 2,
+  "ChipType": 0,
+  "ShouldBeCached": false,
+  "Size": {
+    "x": 0.575,
+    "y": 1.125
+  },
+  "Colour": {
+    "r": 0.668484569,
+    "g": 0.5516694,
+    "b": 0.529797137,
+    "a": 1
+  },
+  "InputPins":[
+    {
+      "Name":"R",
+      "ID":841575776,
+      "Position":{
+        "x":16.125,
+        "y":-11.25
+      },
+      "BitCount":"4",
+      "Colour":0,
+      "ValueDisplayMode":0,
+      "face":3,
+      "LocalOffset":0.375
+    },
+    {
+      "Name":"G",
+      "ID":161896495,
+      "Position":{
+        "x":16.125,
+        "y":-11.75
+      },
+      "BitCount":"4",
+      "Colour":0,
+      "ValueDisplayMode":0,
+      "face":3,
+      "LocalOffset":0.0
+    },
+    {
+      "Name":"B",
+      "ID":65209575,
+      "Position":{
+        "x":16.125,
+        "y":-12.25
+      },
+      "BitCount":"4",
+      "Colour":0,
+      "ValueDisplayMode":0,
+      "face":3,
+      "LocalOffset":-0.375
+    }
+  ],
+  "OutputPins":[],
+  "SubChips":[
+    {
+      "Name":"LED",
+      "ID":1971230748,
+      "Label":"",
+      "Position":{
+        "x":17.76,
+        "y":-11.5
+      },
+      "OutputPinColourInfo":[],
+      "InternalData":[0]
+    }
+  ],
+  "Wires":[],
+  "Displays":[
+    {
+      "SubChipID":1971230748,
+      "Position":{
+        "x":0.03125,
+        "y":-0.03125
+      },
+      "Scale":1.0
+    }
+  ],
+  "HasCustomLayout": false
+}

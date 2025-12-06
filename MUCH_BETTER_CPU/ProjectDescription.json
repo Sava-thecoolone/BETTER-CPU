@@ -1,0 +1,211 @@
+{
+  "ProjectName": "MUCH_BETTER_CPU",
+  "DLSVersion_LastSaved": "2.1.6",
+  "DLSVersion_EarliestCompatible": "2.0.0",
+  "DLSVersion_LastSavedModdedVersion": "1.1.2",
+  "CreationTime": "2025-11-12T11:33:17.317+04:00",
+  "LastSaveTime": "2025-12-06T18:48:12.893+04:00",
+  "Prefs_MainPinNamesDisplayMode": 1,
+  "Prefs_ChipPinNamesDisplayMode": 1,
+  "Prefs_GridDisplayMode": 1,
+  "Prefs_Snapping": 2,
+  "Prefs_StraightWires": 0,
+  "Prefs_SimPaused": false,
+  "Prefs_SimTargetStepsPerSecond": 50000,
+  "Prefs_SimStepsPerClockTick": 5,
+  "Perfs_PinIndicators": 1,
+  "StepsRanSinceCreated": 1595186104,
+  "TimeSpentSinceCreated": {
+    "StartFrom": "2.14:00:23.4120535"
+  },
+  "AllCustomChipNames":[
+    "NOT",
+    "AND",
+    "OR",
+    "XOR",
+    "ADD-1",
+    "ADD-8",
+    "AND-8",
+    "OR-8",
+    "AND1-8",
+    "MUX-1",
+    "MUX-2",
+    "NOT-8",
+    "NEG",
+    "1",
+    "0",
+    "SR_LATCH",
+    "D-LATCH",
+    "REG-8",
+    "BUFFER-8",
+    "MULT",
+    "MULT-SUB",
+    "SQRT",
+    "RGB LED",
+    "ALU",
+    "XOR-8",
+    "COMPARE_SUB",
+    "COMPARE-8",
+    "EQUALS-4",
+    "EQUALS-8",
+    "CPU",
+    "CHOOSE-2",
+    "CHOOSE-3",
+    "CHOOSE-1",
+    "CMUX-1",
+    "DELAY",
+    "CPU1",
+    "NOR",
+    "MORSE",
+    "8-BIT BUFFER",
+    "ENCODE-2",
+    "ENCODE-5",
+    "INPUT",
+    "STACK_COUNT",
+    "INPUT_STACK",
+    "TRANSLATE",
+    "MORSE_DISP",
+    "FINAL_MORSE",
+    "CELL",
+    "MTRX",
+    "CHAR",
+    "FINAL_MORSE1",
+    "OP_DISP",
+    "7-DIGIT",
+    "NUMBER",
+    "ARG",
+    "DEBUG"
+  ],
+  "StarredList":[
+    {
+      "Name":"IN/OUT",
+      "IsCollection":true
+    },
+    {
+      "Name":"MERGE/SPLIT",
+      "IsCollection":true
+    },
+    {
+      "Name":"BASIC",
+      "IsCollection":true
+    },
+    {
+      "Name":"DISPLAY",
+      "IsCollection":true
+    },
+    {
+      "Name":"MEMORY",
+      "IsCollection":true
+    },
+    {
+      "Name":"LOGIC",
+      "IsCollection":true
+    },
+    {
+      "Name":"ARITHMETIC",
+      "IsCollection":true
+    },
+    {
+      "Name":"USEFUL",
+      "IsCollection":true
+    },
+    {
+      "Name":"NOT_USEFUL",
+      "IsCollection":true
+    },
+    {
+      "Name":"CPU",
+      "IsCollection":false
+    }
+  ],
+  "ChipCollections":[
+    {
+      "Chips":["CLOCK","PULSE","KEY","3-STATE BUFFER","CONST"],
+      "IsToggledOpen":false,
+      "Name":"BASIC"
+    },
+    {
+      "Chips":["BUTTON","DIPSWITCH","IN-1","IN-4","IN-8","IN-16","OUT-1","OUT-4","OUT-8","OUT-16"],
+      "IsToggledOpen":false,
+      "Name":"IN/OUT"
+    },
+    {
+      "Chips":["1-4BIT","1-8BIT","4-8BIT","4-1BIT","8-4BIT","8-1BIT","8-16BIT","16-8BIT","1-16BIT","16-1BIT"],
+      "IsToggledOpen":false,
+      "Name":"MERGE/SPLIT"
+    },
+    {
+      "Chips":["BUS-1","BUS-4","BUS-8","BUS-16"],
+      "IsToggledOpen":false,
+      "Name":"BUS"
+    },
+    {
+      "Chips":["7-SEGMENT","DOT DISPLAY","RGB DISPLAY","LED","CHAR","NUMBER","7-DIGIT"],
+      "IsToggledOpen":false,
+      "Name":"DISPLAY"
+    },
+    {
+      "Chips":["ROM 256×16","EEPROM 256×16","RAM-8","D-LATCH","REG-8"],
+      "IsToggledOpen":false,
+      "Name":"MEMORY"
+    },
+    {
+      "Chips":["OR","NOR","XOR","AND","NOT","NAND","AND-8","OR-8","AND1-8","NOT-8","XOR-8","1","0","COMPARE-8"],
+      "IsToggledOpen":false,
+      "Name":"LOGIC"
+    },
+    {
+      "Chips":["ADD-1","ADD-8","NEG","MULT","SQRT","ALU","CPU"],
+      "IsToggledOpen":false,
+      "Name":"ARITHMETIC"
+    },
+    {
+      "Chips":[],
+      "IsToggledOpen":true,
+      "Name":"OTHER"
+    },
+    {
+      "Chips":["FINAL_MORSE1","MORSE","ENCODE-5","INPUT","STACK_COUNT","INPUT_STACK","TRANSLATE","MORSE_DISP","FINAL_MORSE","CELL"],
+      "IsToggledOpen":false,
+      "Name":"CHALLENGE1"
+    },
+    {
+      "Chips":["ENCODE-2","DELAY","CHOOSE-3","CHOOSE-2","CHOOSE-1","EQUALS-8","EQUALS-4","MUX-1","MUX-2","8-BIT BUFFER"],
+      "IsToggledOpen":false,
+      "Name":"USEFUL"
+    },
+    {
+      "Chips":["ARG","OP_DISP","DEBUG","CPU1","CMUX-1","BUZZER","COMPARE_SUB","RGB LED","RTC","DETECTOR","SPS","MULT-SUB","BUFFER-8","SR_LATCH","MTRX"],
+      "IsToggledOpen":true,
+      "Name":"NOT_USEFUL"
+    }
+  ],
+  "pinBitCounts":[
+    "1",
+    "4",
+    "8",
+    "16"
+  ],
+  "SplitMergePairs":[
+    {
+      "Key":"8",
+      "Value":"4"
+    },
+    {
+      "Key":"8",
+      "Value":"1"
+    },
+    {
+      "Key":"4",
+      "Value":"1"
+    },
+    {
+      "Key":"16",
+      "Value":"8"
+    },
+    {
+      "Key":"16",
+      "Value":"1"
+    }
+  ]
+}
