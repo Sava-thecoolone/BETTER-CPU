@@ -19,6 +19,7 @@ JZA   - jump to (current line + arg1) if arg2 == 0    (relative jump)
 HALT  - stops the program
 DRAW  - update the screen
 CLEAR - clear the screen
+SOUND - sets the sound pitch as arg1 (max 255) and sound volume as arg2 (max 15)
 
 
 Input:

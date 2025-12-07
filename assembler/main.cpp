@@ -28,7 +28,8 @@ std::map<std::string, uint8_t> opcodes = {
     {"SCN", 0},
     {"HALT", 15},
     {"DRAW", 16},
-    {"CLEAR", 32}
+    {"CLEAR", 32},
+    {"SOUND", 64}
 };
 
 std::map<std::string, std::string> mem_codes = {

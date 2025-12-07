@@ -1,4 +1,4 @@
-MOV 0 -> A
+SOUND 0, 0
 CLEAR
 
 #define TAIL_POS 0
@@ -29,9 +29,32 @@ JZA 2, A    ; if nothing there - continue, otherwise restart
 JZ .gen_apple
 MOV B -> $APPLE_POS
 MOV $APPLE_POS <- APPLE_COL ; put an apple there
+SOUND 0, 0
+SOUND 128, 15
 DRAW
 
 .loop
+; read input
+INPT -> B        ; wasdqe12
+AND B, 1 -> $255 ; w
+JZA 2, $255
+MOV UP -> $CUR_DIR
+
+SHFTR B -> B     ; asdqe12-
+AND B, 1 -> $255 ; a
+JZA 2, $255
+MOV LEFT -> $CUR_DIR
+
+SHFTR B -> B     ; sdqe12--
+AND B, 1 -> $255 ; s
+JZA 2, $255
+MOV DOWN -> $CUR_DIR
+
+SHFTR B -> B     ; dqe12---
+AND B, 1 -> $255 ; d
+JZA 2, $255
+MOV RIGHT -> $CUR_DIR
+
 ; update prev head
 MOV $CUR_DIR -> A
 AND A, 0b10000000 -> $255 ; d0000000 (is backwards)
@@ -76,30 +99,27 @@ NEG $255 -> $255 ; make it backwards
 MOV $255 -> A ; can't read from 2 addresses at once
 ADD $TAIL_POS, A -> $TAIL_POS
 
-; read input
-INPT -> B        ; wasdqe12
-AND B, 1 -> $255 ; w
-JZA 2, $255
-MOV UP -> $CUR_DIR
-
-SHFTR B -> B     ; asdqe12-
-AND B, 1 -> $255 ; a
-JZA 2, $255
-MOV LEFT -> $CUR_DIR
-
-SHFTR B -> B     ; sdqe12--
-AND B, 1 -> $255 ; s
-JZA 2, $255
-MOV DOWN -> $CUR_DIR
-
-SHFTR B -> B     ; dqe12---
-AND B, 1 -> $255 ; d
-JZA 2, $255
-MOV RIGHT -> $CUR_DIR
-
 MOV $APPLE_POS <- APPLE_COL
+SOUND 0, 0
 DRAW
 JZ .loop
 
 .end
+MOV 50 -> A
+SOUND 120, 15
+
+.sound1
+SUB A, 1 -> A
+CMP 1, A -> B
+JZ .sound1, B
+
+MOV 100 -> A
+SOUND 119, 15
+
+.sound2
+SUB A, 1 -> A
+CMP 1, A -> B
+JZ .sound2, B
+
+SOUND 0, 0
 HALT
