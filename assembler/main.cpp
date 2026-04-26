@@ -383,7 +383,7 @@ int main(int argc, char *argv[])
         std::cout << "No file to compile!";
         return 0;
     }
-    std::ifstream input_file("C:\\Users\\ASUS\\AppData\\LocalLow\\SebastianLague\\Digital-Logic-Sim\\Projects\\MUCH_BETTER_CPU\\Chips\\CPU.json");
+    std::ifstream input_file("%userprofile%\\AppData\\LocalLow\\SebastianLague\\Digital-Logic-Sim\\Projects\\MUCH_BETTER_CPU\\Chips\\CPU.json");
     nlohmann::json data = nlohmann::json::parse(input_file);
     input_file.close();
     std::ifstream code(argv[1]);
@@ -468,7 +468,7 @@ int main(int argc, char *argv[])
         }
         data["SubChips"][9]["InternalData"] = out;
 
-        std::ofstream out_file("C:\\Users\\ASUS\\AppData\\LocalLow\\SebastianLague\\Digital-Logic-Sim\\Projects\\MUCH_BETTER_CPU\\Chips\\CPU.json");
+        std::ofstream out_file("%userprofile%\\AppData\\LocalLow\\SebastianLague\\Digital-Logic-Sim\\Projects\\MUCH_BETTER_CPU\\Chips\\CPU.json");
         out_file << data.dump(4);
         out_file.close();
     }
